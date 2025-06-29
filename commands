@@ -1,0 +1,17 @@
+
+# Commands
+docker-compose down -v --remove-orphans
+docker-compose build --no-cache
+docker-compose up -d
+docker-compose logs -f
+
+# MONGO
+docker exec -it mongo mongosh
+use locationdb
+db.locations.countDocuments()
+
+# Services Logs
+docker logs -f location-producer
+docker logs -f location-consumer
+docker logs -f mongo
+docker logs -f kafka
